@@ -1,12 +1,3 @@
-/* Основной стиль таблицы */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: center;
-    overflow-x: auto; /* Добавляет горизонтальную прокрутку */
-}
-
-/* Стили для ячеек таблицы */
 /* Общий стиль для таблицы */
 table {
     width: 100%;
@@ -72,16 +63,43 @@ td:empty {
     }
 }
 
-/*!* Для кнопок внутри таблицы *!*/
-/*button {*/
-/*    background-color: #2f075e; !* Зеленая кнопка для действий *!*/
-/*    color: white;*/
-/*    border: none;*/
-/*    padding: 6px 12px;*/
-/*    border-radius: 4px;*/
-/*    cursor: pointer;*/
-/*    transition: background 0.3s ease;*/
-/*} */
+/* Обертка для формы */
+#search-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Выравниваем по правому краю */
+    margin-top: 20px;
+}
+
+/* Текст над формой */
+#search-form p {
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: right; /* Текст выравнивается по правой стороне */
+}
+/* Поля ввода */
+#search-form input {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 250px; /* Можно настроить ширину */
+}
+
+/* Добавим небольшое оформление */
+#search-author {
+    margin-bottom: 5px;
+}
+
+/* Если нужно добавить границу или тень */
+#search-form input:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
 /* Стиль для полосы прокрутки */
 table::-webkit-scrollbar {
     height: 8px; /* Сделаем полосу прокрутки чуть толще */

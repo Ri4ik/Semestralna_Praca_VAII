@@ -78,11 +78,14 @@ class ReviewController {
         require_once __DIR__ . '/../Views/reviews/edit_review.view.php';
     }
     public function searchReviews() {
+        // Получаем автор и дата из POST запроса
         $author = $_POST['author'] ?? null;
         $date = $_POST['date'] ?? null;
 
+        // Выполняем поиск по данным
         $reviews = $this->reviewModel->searchReviews($author, $date);
 
+        // Отправляем данные в формате JSON
         echo json_encode(['reviews' => $reviews]);
         exit;
     }

@@ -1,7 +1,14 @@
 // JavaScript для поиска по автору и дате
-document.getElementById('search-form').addEventListener('submit', function (e) {
-    e.preventDefault();
+document.getElementById('search-author').addEventListener('input', function () {
+    searchReviews();
+});
 
+document.getElementById('search-date').addEventListener('input', function () {
+    searchReviews();
+});
+
+// Функция для отправки запроса и отображения результатов
+function searchReviews() {
     const author = document.getElementById('search-author').value;
     const date = document.getElementById('search-date').value;
 
@@ -22,12 +29,12 @@ document.getElementById('search-form').addEventListener('submit', function (e) {
                 const reviewItem = document.createElement('div');
                 reviewItem.classList.add('review-item');
                 reviewItem.innerHTML = `
-                <p>${review.comment || 'Bez textu'}</p>
-                <p class="review-author">${review.name}</p>
-                <p class="review-time">${review.created_at}</p>
-            `;
+                    <p>${review.comment || 'Bez textu'}</p>
+                    <p class="review-author">${review.name}</p>
+                    <p class="review-time">${review.created_at}</p>
+                `;
                 reviewsList.appendChild(reviewItem);
             });
         })
         .catch(error => console.error('Error:', error));
-});
+}

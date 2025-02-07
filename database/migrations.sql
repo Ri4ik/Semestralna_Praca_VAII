@@ -46,15 +46,6 @@ CREATE TABLE reviews (
                          FOREIGN KEY (service_id) REFERENCES services(id) ON DELETE CASCADE
 );
 
--- Таблица приглашений
-CREATE TABLE invitations (
-                             id INT AUTO_INCREMENT PRIMARY KEY,
-                             inviter_id INT NOT NULL,
-                             invitee_email VARCHAR(255) NOT NULL,
-                             token VARCHAR(64) NOT NULL UNIQUE,
-                             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                             FOREIGN KEY (inviter_id) REFERENCES users(id) ON DELETE CASCADE
-);
 
 -- Заполнение таблицы пользователей (пароли должны быть захешированы)
 INSERT INTO users (name, email, phone, password, role) VALUES
@@ -80,6 +71,3 @@ INSERT INTO reviews (user_id, service_id, review_text, rating) VALUES
                                                                    (2, 1, 'Skvelá práca! Mihalnice vyzerajú úžasne.', 5),
                                                                    (2, 2, 'Dobre urobené, ale trochu drahé.', 4);
 
--- Заполнение таблицы приглашений
-INSERT INTO invitations (inviter_id, invitee_email, token) VALUES
-    (1, 'newuser@example.com', 'random_generated_token_here');
