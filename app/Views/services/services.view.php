@@ -11,10 +11,10 @@
         </tr>
         <?php foreach ($services as $service): ?>
             <tr>
-                <td><?= htmlspecialchars($service['name']); ?></td>
-                <td><?= isset($service['description']) ? htmlspecialchars($service['description']) : 'Žiadny popis'; ?></td>
-                <td><?= htmlspecialchars(number_format($service['price'], 2)); ?> €</td>
-                <td><?= htmlspecialchars($service['duration']); ?> min.</td>
+                <td data-label="Názov služby"><?= htmlspecialchars($service['name']); ?></td>
+                <td data-label="Popis"><?= isset($service['description']) ? htmlspecialchars($service['description']) : 'Žiadny popis'; ?></td>
+                <td data-label="Cena"><?= htmlspecialchars(number_format($service['price'], 2)); ?> €</td>
+                <td data-label="Trvanie"><?= htmlspecialchars($service['duration']); ?> min.</td>
             </tr>
         <?php endforeach; ?>
     </table>

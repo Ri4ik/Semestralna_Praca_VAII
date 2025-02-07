@@ -62,7 +62,7 @@ td:empty {
     }
 
     table::-webkit-scrollbar-thumb {
-        background-color: #4CAF50; /* Цвет ползунка */
+        background-color: #2f075e; /* Цвет ползунка */
         border-radius: 6px;
     }
 
@@ -72,25 +72,16 @@ td:empty {
     }
 }
 
-/* Для кнопок внутри таблицы */
-button {
-    background-color: #4CAF50; /* Зеленая кнопка для действий */
-    color: white;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-button:hover {
-    background-color: #45a049; /* Темный зеленый на наведении */
-}
-
-button:active {
-    background-color: #3e8e41; /* Еще более темный зеленый при нажатии */
-}
-
+/*!* Для кнопок внутри таблицы *!*/
+/*button {*/
+/*    background-color: #2f075e; !* Зеленая кнопка для действий *!*/
+/*    color: white;*/
+/*    border: none;*/
+/*    padding: 6px 12px;*/
+/*    border-radius: 4px;*/
+/*    cursor: pointer;*/
+/*    transition: background 0.3s ease;*/
+/*} */
 /* Стиль для полосы прокрутки */
 table::-webkit-scrollbar {
     height: 8px; /* Сделаем полосу прокрутки чуть толще */
@@ -119,7 +110,7 @@ table::-webkit-scrollbar-track {
     display: inline-block;
     margin-top: 10px;
     padding: 8px 15px;
-    background-color: #2435f1;
+    background-color: #2f075e;
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -128,7 +119,7 @@ table::-webkit-scrollbar-track {
 }
 
 .register-link:hover {
-    background-color: #1c2bcc;
+    background-color: #4f1098;
 }
 
 /* Кнопка входа*/
@@ -136,7 +127,7 @@ table::-webkit-scrollbar-track {
     display: inline-block;
     margin-top: 10px;
     padding: 8px 15px;
-    background-color: #4CAF50;
+    background-color: #2f075e;
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -145,7 +136,7 @@ table::-webkit-scrollbar-track {
 }
 
 .login-link:hover {
-    background-color: #45a049;
+    background-color: #2f075e;
 }
 
 .about-text {
@@ -246,15 +237,73 @@ table::-webkit-scrollbar-track {
 }
 
 .delete-review {
-    background-color: #f44336; /* Красная для удаления */
+    background-color: #6a2c98; /* Красная для удаления */
 }
 
 .edit-review:hover, .delete-review:hover {
     opacity: 0.8;
 }
 
+/* Основные стили для таблицы */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #1a1a1a; /* Черный фон таблицы */
+    color: #ffffff; /* Белый текст */
+}
 
+th, td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #333; /* Темно-серая граница для строк */
+}
 
+th {
+    background-color: #2f075e; /* Фиолетовый фон для заголовков */
+    color: #d2a9f8; /* Розовый текст для заголовков */
+}
+
+tr:hover {
+    background-color: #333; /* Темно-серый фон при наведении */
+}
+
+/* Стили для мобильных устройств */
+@media screen and (max-width: 600px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    th {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        margin-bottom: 10px;
+    }
+
+    td {
+        /* Каждая ячейка таблицы будет вести себя как блок */
+        border: none;
+        border-bottom: 1px solid #333;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    td:before {
+        /* Добавляем подписи к данным */
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        content: attr(data-label); /* Используем атрибут data-label для подписей */
+        color: #2f075e; /* Розовый цвет для подписей */
+    }
+}
 
 
 
@@ -544,7 +593,7 @@ select:focus, input:focus {
 /* Стили для кнопки */
 button {
     padding: 10px;
-    background-color: #4CAF50;
+    background-color: #2f075e;
     color: white;
     border: none;
     border-radius: 4px;
@@ -553,11 +602,11 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #500c9f;
 }
 
 button:active {
-    background-color: #3e8e41;
+    background-color: #2f075e;
 }
 
 /* Стили для общего вида */

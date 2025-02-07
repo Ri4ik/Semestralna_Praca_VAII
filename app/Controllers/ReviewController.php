@@ -55,7 +55,7 @@ class ReviewController {
     }
 
     public function editReview() {
-        requireLogin(); // Только авторизованные пользователи могут редактировать отзывы
+        requireAdmin();
         $message = "";
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['review_id'], $_POST['comment'])) {

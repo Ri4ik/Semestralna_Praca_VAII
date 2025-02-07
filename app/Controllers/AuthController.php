@@ -24,29 +24,45 @@ class AuthController {
         $message = "";
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $name = $_POST['name'];
-            $email = $_POST['email'];
-            $phone = $_POST['phone'];
-            $password = $_POST['password'];
+            // Získavame hodnoty z POST požiadavky
+            $name = trim($_POST['name']);
+            $email = trim($_POST['email']);
+            $phone = trim($_POST['phone']);
+            $password = trim($_POST['password']);
 
-            if ($this->userModel->getUserByEmail($email)) {
-                $message = "❌ Email už existuje!";
+            // Kontrola na prázdne polia
+            if (empty($name) || empty($email) || empty($phone) || empty($password)) {
+                $message = "❌ Všetky polia musia byť vyplnené!";
             } else {
-                if ($this->userModel->createUser($name, $email, $phone, $password)) {
-                    $message = "✅ Registrácia úspešná!";
+                // Validácia emailu (kontrola formátu)
+                if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                    $message = "❌ Nesprávny formát emailu!";
                 } else {
-                    $message = "❌ Chyba registrácie!";
+                    // Validácia telefónneho čísla (môže byť upravené podľa požadovaného formátu)
+                    // Napríklad telefón musí obsahovať 10 číslic
+                    if (!preg_match('/^\+?[0-9]{10,15}$/', $phone)) {
+                        $message = "❌ Nesprávny formát telefónneho čísla!";
+                    } else {
+                        // Kontrola, či už email existuje
+                        if ($this->userModel->getUserByEmail($email)) {
+                            $message = "❌ Tento email je už zaregistrovaný!";
+                        } else {
+                            // Vytvorenie používateľa
+                            if ($this->userModel->createUser($name, $email, $phone, $password)) {
+                                $message = "✅ Registrácia bola úspešná!";
+                            } else {
+                                $message = "❌ Chyba pri registrácii!";
+                            }
+                        }
+                    }
                 }
             }
         }
-//        $viewPath = realpath(__DIR__ . '/../Views/auth/register.view.php');
-//        if (!$viewPath) {
-//            die("❌ Ошибка: Файл register.view.php не найден. Проверяем путь: " . __DIR__ . '/../Views/auth/register.view.php');
-//        }
-//        require_once $viewPath;
-        require_once realpath(__DIR__ . '/../Views/auth/register.view.php');
 
+        // Pripojenie pohľadu pre registráciu
+        require_once realpath(__DIR__ . '/../Views/auth/register.view.php');
     }
+
     private function authenticate($email, $password) {
         $user = $this->userModel->verifyPassword($email, $password);
         if ($user) {

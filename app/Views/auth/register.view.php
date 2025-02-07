@@ -24,4 +24,6 @@
 
 <p>Máte už účet? <a href="/Lash_reservation/public/login.php" class="login-link">Prihlásiť sa</a></p>
 </main>
+<!-- Подключаем файл с валидацией JavaScript -->
+<script src="/Lash_reservation/public/assets/js/validation.js"></script>
 <?php require_once __DIR__ . '/../layout/footer.php'; ?>
