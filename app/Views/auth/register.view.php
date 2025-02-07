@@ -1,11 +1,27 @@
 <?php require_once __DIR__ . '/../layout/header.php'; ?>
+<main>
 <h2>Registrácia</h2>
-<form method="POST">
-    <input type="text" name="name" placeholder="Meno" required>
-    <input type="email" name="email" placeholder="Email" required>
-    <input type="text" name="phone" placeholder="Telefón" required>
-    <input type="password" name="password" placeholder="Heslo" required>
-    <button type="submit">Registrovať</button>
+
+<?php if (!empty($message)) : ?>
+    <p><?= htmlspecialchars($message) ?></p>
+<?php endif; ?>
+
+<form action="" method="POST">
+    <label for="name">Meno:</label>
+    <input type="text" name="name" id="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email" required>
+
+    <label for="phone">Telefón:</label>
+    <input type="text" name="phone" id="phone" required>
+
+    <label for="password">Heslo:</label>
+    <input type="password" name="password" id="password" required>
+
+    <button type="submit">Zaregistrovať sa</button>
 </form>
-<p><?= $message ?? ''; ?></p>
+
+<p>Máte už účet? <a href="/Lash_reservation/public/login.php" class="login-link">Prihlásiť sa</a></p>
+</main>
 <?php require_once __DIR__ . '/../layout/footer.php'; ?>

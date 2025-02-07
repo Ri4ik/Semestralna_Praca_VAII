@@ -10,10 +10,26 @@ class Reservation {
     }
 
     public function getAllReservations() {
-        $stmt = $this->pdo->query("SELECT reservations.*, users.name AS user_name, services.name AS service_name 
-                                   FROM reservations 
-                                   JOIN users ON reservations.user_id = users.id 
-                                   JOIN services ON reservations.service_id = services.id");
+        $stmt = $this->pdo->query("
+        SELECT 
+            r.id, r.reservation_date, r.reservation_time, 
+            u.name AS user_name, u.email AS user_email, 
+            s.name AS service_name 
+        FROM reservations r
+        JOIN users u ON r.user_id = u.id
+        JOIN services s ON r.service_id = s.id
+    ");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public function getUserReservations($user_id) {
+        $stmt = $this->pdo->prepare("SELECT r.id, r.reservation_date, r.reservation_time, 
+                                        s.name AS service_name, 
+                                        u.name AS user_name, u.email AS user_email 
+                                 FROM reservations r 
+                                 JOIN services s ON r.service_id = s.id 
+                                 JOIN users u ON r.user_id = u.id 
+                                 WHERE r.user_id = ?");
+        $stmt->execute([$user_id]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 

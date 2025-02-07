@@ -22,9 +22,10 @@ class User {
     }
 
     public function getAllUsers() {
-        $stmt = $this->db->query("SELECT id, name FROM users");
-        return $stmt ? $stmt->fetchAll(PDO::FETCH_ASSOC) : [];
+        $stmt = $this->db->query("SELECT id, name, email FROM users");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
 
     public function getUserByEmail($email) {
         $sql = "SELECT * FROM users WHERE email = :email";

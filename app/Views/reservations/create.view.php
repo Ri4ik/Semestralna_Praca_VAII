@@ -1,4 +1,5 @@
 <?php require_once __DIR__ . '/../layout/header.php'; ?>
+<main>
 <script src="/Lash_reservation/public/assets/js/validation.js"></script>
 <h2>Vytvorenie rezervácie</h2>
 
@@ -7,12 +8,16 @@
 <?php endif; ?>
 
 <form action="" method="POST">
-    <label for="user_id">Používateľ:</label>
-    <select name="user_id" id="user_id" required>
-        <?php foreach ($users as $user) : ?>
-            <option value="<?= $user['id'] ?>"><?= htmlspecialchars($user['name']) ?></option>
-        <?php endforeach; ?>
-    </select>
+    <?php if ($_SESSION['user']['role'] === 'admin') : ?>
+        <label for="user_id">Používateľ:</label>
+        <select name="user_id" id="user_id" required>
+            <?php foreach ($users as $user) : ?>
+                <option value="<?= $user['id'] ?>"><?= htmlspecialchars($user['email']) ?></option>
+            <?php endforeach; ?>
+        </select>
+    <?php else : ?>
+        <input type="hidden" name="user_id" value="<?= $_SESSION['user']['id'] ?>">
+    <?php endif; ?>
 
     <label for="service_id">Služba:</label>
     <select name="service_id" id="service_id" required>
@@ -30,4 +35,5 @@
     <button type="submit">Vytvoriť rezerváciu</button>
 </form>
 
+</main>
 <?php require_once __DIR__ . '/../layout/footer.php'; ?>

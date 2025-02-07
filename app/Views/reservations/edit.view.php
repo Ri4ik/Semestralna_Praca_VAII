@@ -1,5 +1,5 @@
 <?php require_once __DIR__ . '/../layout/header.php'; ?>
-
+<main>
 <h2>Upraviť rezerváciu</h2>
 
 <?php if (!empty($error)) : ?>
@@ -26,5 +26,5 @@
 </form>
 
 <a href="/Lash_reservation/public/reservations.php">⏪ Späť na zoznam rezervácií</a>
-
+</main>
 <?php require_once __DIR__ . '/../layout/footer.php'; ?>

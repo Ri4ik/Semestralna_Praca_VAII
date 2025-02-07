@@ -1,11 +1,12 @@
 <?php require_once __DIR__ . '/../layout/header.php'; ?>
-
+<main>
 <h2>Moje rezervácie</h2>
 <a href="/Lash_reservation/public/create_reservation.php">➕ Nová rezervácia</a>
 
-<table border="1">
+<table border="1" style="border-collapse: collapse; width: 100%; text-align: center;">
     <tr>
         <th>Užívateľ</th>
+        <th>Email</th>
         <th>Služba</th>
         <th>Dátum</th>
         <th>Čas</th>
@@ -14,6 +15,7 @@
     <?php foreach ($reservations as $reservation): ?>
         <tr>
             <td><?= htmlspecialchars($reservation['user_name']); ?></td>
+            <td><?= htmlspecialchars($reservation['user_email']); ?></td>
             <td><?= htmlspecialchars($reservation['service_name']); ?></td>
             <td><?= htmlspecialchars($reservation['reservation_date']); ?></td>
             <td><?= htmlspecialchars($reservation['reservation_time']); ?></td>
@@ -24,5 +26,5 @@
         </tr>
     <?php endforeach; ?>
 </table>
-
+</main>
 <?php require_once __DIR__ . '/../layout/footer.php'; ?>

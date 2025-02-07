@@ -1,0 +1,631 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+td {
+    white-space: nowrap; /* Не переносить текст */
+}
+
+/* Кнопка регистрации*/
+.register-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #ff69b4;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: background 0.3s ease-in-out;
+}
+
+.register-link:hover {
+    background-color: #ff1493;
+}
+
+/* Кнопка входа*/
+.login-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: background 0.3s ease-in-out;
+}
+
+.login-link:hover {
+    background-color: #45a049;
+}
+
+.about-text {
+    flex: 1;
+    max-width: 50%; /* Занимает половину экрана на больших экранах */
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    padding: 20px;
+    text-align: justify;
+}
+
+/* Заголовок */
+.about-text h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 20px;
+}
+
+/* Параграф */
+.about-text p {
+    font-size: 16px;
+    line-height: 1.8;
+    text-align: justify;
+    margin-bottom: 10px;
+}
+
+/*📱 Адаптация под мобильные экраны*/
+@media (max-width: 900px) {
+    .about-text {
+        max-width: 100%; /* Полная ширина на узких экранах */
+        text-align: left;
+    }
+}
+
+.gallery {
+    flex: 1; /* Занимает 50% ширины */
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.gallery img {
+    width: 30%;
+    max-width: 300px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.examples-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px; /* Расстояние между изображениями */
+    padding: 10px;
+}
+
+.examples-gallery figure {
+    text-align: center;
+    max-width: 300px; /* Максимальная ширина фото */
+}
+
+.examples-gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.examples-gallery figcaption {
+    margin-top: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+}
+
+/*.btn-add-review {*/
+/*    display: inline-block;*/
+/*    background-color: #4CAF50;*/
+/*    color: white;*/
+/*    padding: 10px 15px;*/
+/*    text-decoration: none;*/
+/*    font-size: 16px;*/
+/*    border-radius: 5px;*/
+/*    margin-bottom: 20px;*/
+/*}*/
+
+/*.btn-add-review:hover {*/
+/*    background-color: #45a049;*/
+/*}*/
+
+/* Стили для иконок входа и выхода */
+.auth-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+}
+
+.auth-icon img {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.auth-icon img:hover {
+    opacity: 0.8; /* Немного уменьшить непрозрачность при наведении */
+}
+.review-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Расстояние между кнопками */
+}
+
+.edit-review, .delete-review {
+    padding: 5px 10px;
+    border: none;
+    background-color: #4CAF50; /* Зеленая для редактирования */
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    text-decoration: none; /* Убираем подчеркивание у ссылки */
+}
+
+.edit-review {
+    background-color: #4CAF50;
+}
+
+.delete-review {
+    background-color: #f44336; /* Красная для удаления */
+}
+
+.edit-review:hover, .delete-review:hover {
+    opacity: 0.8;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+header {
+    background-image: url('../images/logo.jpg');
+    background-size: auto 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: black;
+    height: 200px;
+
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    font-family: 'Arial', sans-serif;
+}
+
+.auth-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.auth-icon a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.auth-icon svg {
+    width: 32px;
+    height: 32px;
+    transition: transform 0.3s;
+}
+
+.auth-icon svg:hover {
+    transform: scale(1.1);
+}
+
+
+/* Глобальные стили для всей страницы */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Контентная часть занимает всю доступную высоту */
+.main-content {
+    flex: 1;
+}
+
+
+/*html, body {*/
+/*    height: 100%; !* Высота html и body равна 100% окна браузера *!*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*}*/
+
+/*body {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    min-height: 100vh; !* Минимальная высота body равна высоте видимой области браузера *!*/
+/*}*/
+
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+h1 {
+    font-family: 'Arial', sans-serif;
+    font-size: 2em;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 0;
+}
+.price-list {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.price-list h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.price-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.price-item h3 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: #444;
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff4c4c;
+    background-color: #f4f4f4;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+@media (max-width: 600px) {
+    .price-list {
+        padding: 15px;
+    }
+
+    .price-item h3, .price {
+        font-size: 1.3rem;
+    }
+
+    .price-list h2 {
+        font-size: 1.8rem;
+    }
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/*.gallery {*/
+/*    display: flex;*/
+/*    justify-content: space-around;*/
+/*    flex-wrap: wrap;  !* Это позволит элементам переноситься на следующую строку *!*/
+/*    gap: 20px;        !* Добавляет промежутки между изображениями *!*/
+/*}*/
+
+/*.gallery img {*/
+/*    width: 100%;*/
+/*    max-width: 40%;*/
+/*    height: auto;      !* Сохраняет пропорции изображений *!*/
+/*    border: 2px solid #ddd;*/
+/*    padding: 10px;*/
+/*    background-color: #fff;*/
+/*}*/
+.reviews {
+    background-color: #f9f9f9;
+    padding: 40px;
+    border-radius: 10px;
+    margin-top: 40px;
+}
+
+.reviews h2 {
+    text-align: center;
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.review-item {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+.review-time {
+    text-align: right;
+    font-size: 10px;         /* Уменьшенный размер шрифта */
+    color: #888;              /* Светло-серый цвет */
+    font-style: italic;       /* Курсивный текст */
+    margin-top: 5px;          /* Небольшой отступ сверху */
+}
+.review-item:hover {
+    transform: scale(1.05);
+}
+
+.review-item p {
+    font-size: 1.2em;
+    color: #555;
+    line-height: 1.6;
+}
+
+.review-item .review-author {
+    text-align: right;
+    font-size: 1em;
+    font-weight: bold;
+    color: #777;
+    margin-top: 15px;
+}
+.review-item p::before,
+.review-item p::after {
+    content: '"';
+    font-size: 1.5em;
+    color: #ccc;
+    vertical-align: top;
+}
+
+.review-item p::before {
+    margin-right: 5px;
+}
+
+.review-item p::after {
+    margin-left: 5px;
+}
+
+.map-container {
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+iframe {
+    width: 100%;
+    height: 300px;
+    border: none;
+}
+/* Стили для формы */
+form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 0 auto;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+input, select, button {
+    margin-bottom: 10px;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+select {
+    appearance: none; /* Убираем стандартный вид выпадающего списка */
+    background-color: white;
+    cursor: pointer;
+}
+
+select:focus, input:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+/* Стили для кнопки */
+button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button:active {
+    background-color: #3e8e41;
+}
+
+/* Стили для общего вида */
+input[type="text"], input[type="date"], input[type="time"], select {
+    padding: 8px;
+    font-size: 16px;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer {
+    background-image: url('../images/fut1.jpg');
+    background-size: cover; /* Сделает изображение полноэкранным */
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    font-family: 'Arial', sans-serif;
+
+}
+
+footer p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+/*Button Social*/
+/* From Uiverse.io by david-mohseni */
+ul {
+    list-style: none;
+}
+
+.example-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.example-2 .icon-content {
+    margin: 0 10px;
+    position: relative;
+}
+.example-2 .icon-content .tooltip {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+.example-2 .icon-content:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    top: -50px;
+}
+.example-2 .icon-content a {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: #4d4d4d;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+}
+.example-2 .icon-content a:hover {
+    box-shadow: 3px 2px 45px 0 rgb(0 0 0 / 12%);
+}
+.example-2 .icon-content a svg {
+    position: relative;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+}
+.example-2 .icon-content a:hover {
+    color: white;
+}
+.example-2 .icon-content a .filled {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: #000;
+    transition: all 0.3s ease-in-out;
+}
+.example-2 .icon-content a:hover .filled {
+    height: 100%;
+}
+.example-2 .icon-content a[data-social="facebook"] .filled,
+.example-2 .icon-content a[data-social="facebook"] ~ .tooltip {
+    background: #1877f2;
+    color: #fff;
+}
+.example-2 .icon-content a[data-social="instagram"] .filled,
+.example-2 .icon-content a[data-social="instagram"] ~ .tooltip {
+    background: linear-gradient(
+            45deg,
+            #405de6,
+            #5b51db,
+            #b33ab4,
+            #c135b4,
+            #e1306c,
+            #fd1f1f
+    );
+
+}
+.example-2 .icon-content a[data-social="telegram"] .filled,
+.example-2 .icon-content a[data-social="telegram"] ~ .tooltip {
+    background-color: #0088cc;
+}

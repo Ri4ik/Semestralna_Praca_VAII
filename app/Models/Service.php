@@ -11,8 +11,8 @@ class Service {
 
     // Получить все услуги
     public function getAllServices() {
-        $stmt = $this->pdo->query("SELECT id, name FROM services");
-        return $stmt ? $stmt->fetchAll(PDO::FETCH_ASSOC) : [];
+        $stmt = $this->pdo->query("SELECT id, name, description, price, duration FROM services");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     // Получить услугу по ID

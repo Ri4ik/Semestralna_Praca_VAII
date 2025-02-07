@@ -65,6 +65,7 @@ class AuthController {
 
     public function logout() {
         session_destroy();
+        session_unset();
         header("Location: /Lash_reservation/public/login.php");
         exit;
     }
