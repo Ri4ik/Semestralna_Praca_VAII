@@ -9,7 +9,7 @@ class ServiceController {
         $this->serviceModel = new Service();
     }
 
-    public function index() {
+    public function index() { //READ
 
         $services = $this->serviceModel->getAllServices();
         require_once __DIR__ . '/../Views/services/services.view.php';

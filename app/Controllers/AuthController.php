@@ -20,10 +20,10 @@ class AuthController {
 
         require_once __DIR__ . '/../Views/auth/login.view.php';
     }
-    public function register() {
+    public function register() { //Create
         $message = "";
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') { //CREATE
             // Získavame hodnoty z POST požiadavky
             $name = trim($_POST['name']);
             $email = trim($_POST['email']);

@@ -12,7 +12,7 @@ function requireLogin() {
 
 function requireAdmin() {
     if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'admin') {
-        header("Location: /Lash_reservation/public/dashboard.php");
+        header("Location: /Lash_reservation/public/index.php");
         exit;
     }
 }

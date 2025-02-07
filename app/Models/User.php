@@ -11,7 +11,7 @@ class User {
     // Создать нового пользователя
     public function createUser($name, $email, $phone, $password, $role = 'client') {
         // Хешируем пароль перед сохранением
-        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);  ///////////////////////////PASSWORD_BCRYPT////////////////////////////
 
         // Используем подготовленное выражение
         $sql = "INSERT INTO users (name, email, phone, password, role) 
@@ -54,7 +54,7 @@ class User {
         $user = $this->getUserByEmail($email);
 
         // Если пользователь найден и пароль совпадает, возвращаем пользователя, иначе false
-        return ($user && password_verify($password, $user['password'])) ? $user : false;
+        return ($user && password_verify($password, $user['password'])) ? $user : false;   ////////////////////password_verify///////////////////
     }
 }
 ?>

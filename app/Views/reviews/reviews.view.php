@@ -7,7 +7,7 @@ $userRole = $_SESSION['user']['role'] ?? null; // Получаем роль по
 
 <!-- Форма поиска -->
 <form id="search-form" action="" method="GET">
-    <p>Hľadať recenzie<p>
+    <h2>Hľadať recenzie</h2>
     <input type="text" id="search-author" name="search-author" placeholder="Hľadať podľa autora" />
     <input type="date" id="search-date" name="search-date" />
 <!--    <button type="submit">Hľadať</button>-->

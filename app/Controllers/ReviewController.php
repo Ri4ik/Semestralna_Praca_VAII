@@ -9,13 +9,13 @@ class ReviewController {
         $this->reviewModel = new Review();
     }
 
-    public function index() {
+    public function index() { //READ
         $userRole = $_SESSION['user']['role'] ?? null;
         $reviews = $this->reviewModel->getAllReviews();
         require_once __DIR__ . '/../Views/reviews/reviews.view.php';
     }
 
-    public function addReview() {
+    public function addReview() { //CREATE
         requireLogin(); // Только авторизованные пользователи могут оставлять отзывы
         $message = ""; // Инициализация переменной для сообщения
 
@@ -39,7 +39,7 @@ class ReviewController {
     }
 
 
-    public function deleteReview() {
+    public function deleteReview() { //DELETE
         requireAdmin(); // Только админ может удалять отзывы
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['review_id'])) {
@@ -54,7 +54,7 @@ class ReviewController {
         exit;
     }
 
-    public function editReview() {
+    public function editReview() { //UPDATE
         requireAdmin();
         $message = "";
 
@@ -77,7 +77,7 @@ class ReviewController {
         $review = $this->reviewModel->getReviewById($_GET['id']);
         require_once __DIR__ . '/../Views/reviews/edit_review.view.php';
     }
-    public function searchReviews() {
+    public function searchReviews() { //Read
         // Получаем автор и дата из POST запроса
         $author = $_POST['author'] ?? null;
         $date = $_POST['date'] ?? null;

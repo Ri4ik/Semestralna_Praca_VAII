@@ -18,7 +18,7 @@ class ReservationController {
     }
 
     // 📌 Метод просмотра резерваций
-    public function index() {
+    public function index() { //READ
         requireLogin();
 
         if ($_SESSION['user']['role'] === 'admin') {
@@ -31,7 +31,7 @@ class ReservationController {
     }
 
     // 📌 Метод создания резервации
-    public function create() {
+    public function create() { //CREATE
         requireLogin();
         $message = "";
 
@@ -79,7 +79,7 @@ class ReservationController {
     }
 
     // 📌 Метод редактирования резервации
-    public function edit($id) {
+    public function edit($id) { //Update
         requireLogin();
         $reservation = $this->reservationModel->getReservationById($id);
         $services = $this->serviceModel->getAllServices();
@@ -98,7 +98,7 @@ class ReservationController {
             die("❌ Rezerváciu je možné upraviť iba do 5 hodín pred termínom.");
         }
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {  //Update
             $service_id = $_POST['service_id'];
             $reservation_date = $_POST['reservation_date'];
             $reservation_time = $_POST['reservation_time'];
@@ -115,7 +115,7 @@ class ReservationController {
     }
 
     // 📌 Метод удаления резервации
-    public function delete($id) {
+    public function delete($id) {  //Delete
         requireLogin();
         $reservation = $this->reservationModel->getReservationById($id);
 

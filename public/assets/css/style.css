@@ -73,11 +73,11 @@ td:empty {
 
 /* Текст над формой */
 #search-form p {
-    font-size: 18px;
+    font-size: 20px;
     color: #333;
     font-weight: bold;
     margin-bottom: 10px;
-    text-align: right; /* Текст выравнивается по правой стороне */
+    text-align: center; /* Текст выравнивается по правой стороне */
 }
 /* Поля ввода */
 #search-form input {
@@ -120,8 +120,6 @@ table::-webkit-scrollbar-track {
         font-size: 10px; /* Еще меньше шрифт для маленьких экранов */
     }
 }
-
-
 
 /* Кнопка регистрации*/
 .register-link {
@@ -325,20 +323,6 @@ tr:hover {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 header {
     background-image: url('../images/logo.jpg');
     background-size: auto 100%;
@@ -389,18 +373,6 @@ html, body {
     flex: 1;
 }
 
-
-/*html, body {*/
-/*    height: 100%; !* Высота html и body равна 100% окна браузера *!*/
-/*    margin: 0;*/
-/*    padding: 0;*/
-/*}*/
-
-/*body {*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    min-height: 100vh; !* Минимальная высота body равна высоте видимой области браузера *!*/
-/*}*/
 
 main {
     flex: 1;
@@ -484,21 +456,6 @@ nav ul li a {
     font-weight: bold;
 }
 
-/*.gallery {*/
-/*    display: flex;*/
-/*    justify-content: space-around;*/
-/*    flex-wrap: wrap;  !* Это позволит элементам переноситься на следующую строку *!*/
-/*    gap: 20px;        !* Добавляет промежутки между изображениями *!*/
-/*}*/
-
-/*.gallery img {*/
-/*    width: 100%;*/
-/*    max-width: 40%;*/
-/*    height: auto;      !* Сохраняет пропорции изображений *!*/
-/*    border: 2px solid #ddd;*/
-/*    padding: 10px;*/
-/*    background-color: #fff;*/
-/*}*/
 .reviews {
     background-color: #f9f9f9;
     padding: 40px;
@@ -633,18 +590,6 @@ input[type="text"], input[type="date"], input[type="time"], select {
     font-size: 16px;
     width: 100%;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

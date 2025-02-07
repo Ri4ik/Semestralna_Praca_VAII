@@ -10,7 +10,7 @@ class ExportController {
     }
 
     // Метод для экспорта всех резерваций в CSV
-    public function exportReservations() {
+    public function exportReservations() { //READ
         $reservations = $this->reservationModel->getAllReservations();
         $filename = "reservations_" . date("Y_m_d_H_i_s") . ".csv";
 
