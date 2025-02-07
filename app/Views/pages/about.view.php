@@ -1,4 +1,5 @@
 <?php require_once __DIR__ . '/../layout/header.php'; ?>
+
 <main>
 <section>
     <h2>Informácie o našom salóne</h2>

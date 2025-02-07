@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}?>
 <html lang="sk">
 <link rel="stylesheet" href="/Lash_reservation/public/assets/css/style.css">
 <head>
@@ -14,7 +18,7 @@
             <li><a href="/Lash_reservation/public/">Domov</a></li>
             <li><a href="/Lash_reservation/public/about.php">Kde nás nájdete</a></li>
             <li><a href="/Lash_reservation/public/examples.php">Príklady prác</a></li>
-            <li><a href="/Lash_reservation/public/services.php">Cenník</a></li>
+            <li><a href="/Lash_reservation/public/services.php">Služby</a></li>
             <li><a href="/Lash_reservation/public/create_reservation.php">Rezervácia</a></li>
             <li><a href="/Lash_reservation/public/reservations.php">Moje Rezervácie</a></li>
             <li><a href="/Lash_reservation/public/reviews.php">Recenzií</a></li>

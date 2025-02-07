@@ -3,6 +3,7 @@
     <main>
         <section>
 <!--            <h2>Naša práca</h2>-->
+
             <div class="examples-gallery">
                 <figure>
                     <img src="/Lash_reservation/public/assets/images/1.jpg" alt="Práca 1">
