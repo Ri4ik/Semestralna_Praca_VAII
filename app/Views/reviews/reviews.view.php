@@ -2,7 +2,7 @@
 <?php
 $userRole = $_SESSION['user']['role'] ?? null; // Получаем роль пользователя (если авторизован)
 ?>
-
+<main>
 <h2>Recenzie</h2>
 
 <!-- Форма поиска -->
@@ -41,7 +41,7 @@ $userRole = $_SESSION['user']['role'] ?? null; // Получаем роль по
         </div>
     <?php endforeach; ?>
 </div>
-
+</main>
 <?php require_once __DIR__ . '/../layout/footer.php'; ?>
 
 <!-- Подключаем JavaScript файлы -->

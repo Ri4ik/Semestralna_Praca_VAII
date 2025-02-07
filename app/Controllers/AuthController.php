@@ -57,7 +57,7 @@ class AuthController {
                 'role' => $user['role']
             ];
 //            return "✅ Prihlásenie úspešné!";
-            header("Location: /Lash_reservation/public/dashboard.php");
+            header("Location: /Lash_reservation/public/index.php");
             exit;
         }
         return "❌ Nesprávny email alebo heslo!";
